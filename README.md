@@ -1,1 +1,3 @@
-# tic-tac-toe
+# Cat Clicker
+
+Click the cat and the counter counts. Disruptive.
