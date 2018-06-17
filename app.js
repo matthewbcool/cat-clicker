@@ -30,25 +30,45 @@ const createListItems = () => {
     }
 };
     
+
+const listInitializer = (() => {
+    createListItems();
+    //add the names from 'API'
+    let listItems = document.querySelectorAll('li');
+    for (let i = 0; i < listItems.length; i++) {
+    listItems[i].textContent = fakeCatRequest[i].name + '  ';
+    listItems[i].id = i;
+    let badge = document.createElement('span');
+    badge.className = 'badge badge-danger';
+    listItems[i].appendChild(badge);
+    }
+})();
+
 const imageInitializer = (() => {
     for (let i = 0; i < fakeCatRequest.length; i++) {
         let catImgBox = document.getElementById('cat-image-container');
         let newImg = document.createElement('img');
         newImg.className = 'hidden img-fluid'
         newImg.setAttribute('src', fakeCatRequest[i].url);
-        catImgBox.appendChild(newImg);
-    }
-})();
-const listInitializer = (() => {
-    createListItems();
-    //add the names from 'API'
-    let listItems = document.querySelectorAll('li');
-    for (let i = 0; i < listItems.length; i++) {
-    listItems[i].textContent = fakeCatRequest[i].name;
-    listItems[i].id = i;
+        catImgBox.appendChild(newImg); 
     }
 })();
 
+const addImageEventListeners = (() =>  { 
+    let allImgs = document.getElementsByTagName('img');
+    let listItems = document.querySelectorAll('li');
+    for (let i = 0; i < allImgs.length; i++) {
+        allImgs[i].addEventListener('click', function(){
+            let spanItem = document.getElementById(i);
+            spanItem = spanItem.lastChild;
+            if (spanItem.innerText === '') {
+                spanItem.innerText = 1;
+            } else {
+            spanItem.innerText = parseInt(spanItem.innerText) + 1;
+            }    
+        })
+    }
+})();
 const hideContent = () => {
     let currentContents = document.querySelectorAll('#cat-image-container *');
         for (content of currentContents) {
