@@ -1,8 +1,21 @@
-.cat-img {
+.active-cat-img {
     display: block;
 }
 
+.hidden {
+  display: none; 
+  transition: 1s;
+  transform: rotate(360deg);
+}
 
+.cat-picture-box {
+    height: 300px;
+}
+
+.fade {
+    transition: 1s;
+    transform: rotate(360)
+}
 
 
 /********************************

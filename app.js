@@ -22,7 +22,7 @@ let fakeCatRequest = [
     ];
 
 const createListItems = () => {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < fakeCatRequest.length; i++) {
         let mainUl = document.getElementById('cat-list-group');
         let newLi =  document.createElement('li')
         newLi.className = 'list-group-item';    
@@ -30,24 +30,54 @@ const createListItems = () => {
     }
 };
     
-
+const imageInitializer = (() => {
+    for (let i = 0; i < fakeCatRequest.length; i++) {
+        let catImgBox = document.getElementById('cat-image-container');
+        let newImg = document.createElement('img');
+        newImg.className = 'hidden img-fluid'
+        newImg.setAttribute('src', fakeCatRequest[i].url);
+        catImgBox.appendChild(newImg);
+    }
+})();
 const listInitializer = (() => {
-    //create list items
     createListItems();
     //add the names from 'API'
     let listItems = document.querySelectorAll('li');
     for (let i = 0; i < listItems.length; i++) {
     listItems[i].textContent = fakeCatRequest[i].name;
+    listItems[i].id = i;
     }
 })();
+
+const hideContent = () => {
+    let currentContents = document.querySelectorAll('#cat-image-container *');
+        for (content of currentContents) {
+            content.className = 'hidden img-fluid'
+        }
+}
+
+const deactivateListItems = (listItems) => {
+    for (item of listItems) {
+        item.className = 'list-group-item'
+    }
+}
 
 const addListItemListener = () => {
     //select list-items
     let listItems = document.querySelectorAll('li');
+    let imgGroup = document.getElementsByTagName('img');
     //loop through list-items
     for (let i = 0; i < listItems.length; i++ ) {
-        listItems[i].addEventListener('click', function(){  
-            
+        listItems[i].addEventListener('click', function(){
+            hideContent();
+            deactivateListItems(listItems);
+            let selectedImage = imgGroup[i];
+            selectedImage.className = 'img-fluid';
+            this.className = 'list-group-item active';
         })
     }
 }
+addListItemListener();
+
+console.log(document.getElementsByTagName('img'));
+console.log(document.getElementsByTagName('li'))
