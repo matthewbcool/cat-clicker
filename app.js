@@ -98,6 +98,3 @@ const addListItemListener = () => {
     }
 }
 addListItemListener();
-
-console.log(document.getElementsByTagName('img'));
-console.log(document.getElementsByTagName('li'))

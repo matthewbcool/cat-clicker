@@ -9,13 +9,10 @@
 }
 
 .cat-picture-box {
-    height: 300px;
+    height: 400px;
+    overflow: hidden;
 }
 
-.fade {
-    transition: 1s;
-    transform: rotate(360)
-}
 
 
 /********************************
