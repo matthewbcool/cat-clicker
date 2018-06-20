@@ -9,10 +9,13 @@
 }
 
 .cat-picture-box {
-    height: 400px;
+    height: 300px;
     overflow: hidden;
 }
 
+.touched {
+    transition: .4s;
+  }
 
 
 /********************************

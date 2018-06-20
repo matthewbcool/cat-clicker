@@ -24,7 +24,7 @@ let fakeCatRequest = [
     },
     {
         name: 'Richard', 
-        url: 'https://www.telegraph.co.uk/content/dam/pets/2017/01/06/1-JS117202740-yana-two-face-cat-news_trans_NvBQzQNjv4BqJNqHJA5DVIMqgv_1zKR2kxRY9bnFVTp4QZlQjJfe6H0.jpg?imwidth=450'
+        url: 'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&h=350'
     },
     {
         name: 'Fang', 
@@ -48,6 +48,7 @@ const listInitializer = (() => {
     let listItems = document.querySelectorAll('li');
     for (let i = 0; i < listItems.length; i++) {
     listItems[i].textContent = fakeCatRequest[i].name + '  ';
+    //giving id's to list items so that they can bind to the index of the urls
     listItems[i].id = i;
     let badge = document.createElement('span');
     badge.className = 'badge badge-danger';
@@ -104,7 +105,7 @@ const addListItemListener = () => {
             deactivateListItems(listItems);
             let selectedImage = imgGroup[i];
             selectedImage.className = 'img-fluid';
-            this.className = 'list-group-item active';
+            this.className = 'list-group-item active touched';
         })
     }
 }
