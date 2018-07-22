@@ -1,6 +1,6 @@
-//service-worker
+//service-worker check
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('https://matthewbcool.github.io/cat-clicker//service-worker.js')
     .then(function(registration) {
       console.log('Registration successful, scope is:', registration.scope);
     })
